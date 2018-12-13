@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using Nop.Web.Framework.Mvc.Models;
+using Nop.Web.Framework.Models;
 using Nop.Web.Framework.UI;
 
 namespace Majako.Plugin.Common.Extensions
@@ -25,7 +25,7 @@ namespace Majako.Plugin.Common.Extensions
 
         public static void AddNotification(this Controller constroller, NotifyType type, string message, bool persistForTheNextRequest)
         {
-            string dataKey = string.Format("nop.notifications.{0}", type);
+            var dataKey = $"nop.notifications.{type}";
             if (persistForTheNextRequest)
             {
                 if (constroller.TempData[dataKey] == null)

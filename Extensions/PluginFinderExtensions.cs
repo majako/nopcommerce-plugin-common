@@ -1,4 +1,5 @@
 ﻿using Nop.Core.Plugins;
+using Nop.Services.Plugins;
 
 namespace Majako.Plugin.Common.Extensions
 {
