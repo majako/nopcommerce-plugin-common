@@ -11,4 +11,8 @@
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Portable.Licensing.Core" Version="1.0.3" />
+  </ItemGroup>
 </Project>
