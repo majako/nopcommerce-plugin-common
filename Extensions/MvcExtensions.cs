@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Nop.Services.Messages;
 using Nop.Web.Framework.Models;
 using Nop.Web.Framework.UI;
 

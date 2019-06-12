@@ -21,8 +21,10 @@ namespace Majako.Plugin.Common.Extensions
             {
                 foreach (var filePath in Directory.EnumerateFiles(nopFileProvider.MapPath($"~/Plugins/{pluginSystemName}/Resources"), $"Resources.{culture}.xml", SearchOption.TopDirectoryOnly))
                 {
-                    var localesXml = File.ReadAllText(filePath);
-                    localizationService.ImportResourcesFromXml(language, localesXml);
+                    using (var streamReader = new StreamReader(filePath))
+                    {
+                        localizationService.ImportResourcesFromXml(language, streamReader);
+                    }
                 }
             }
         }

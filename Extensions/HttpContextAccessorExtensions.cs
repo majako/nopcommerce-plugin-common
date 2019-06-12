@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.Extensions.DependencyInjection;
-using Nop.Web.Framework.UI;
+using Nop.Services.Messages;
 
 namespace Majako.Plugin.Common.Extensions
 {
