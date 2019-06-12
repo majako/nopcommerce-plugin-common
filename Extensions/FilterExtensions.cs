@@ -50,6 +50,16 @@ namespace Majako.Plugin.Common.Extensions
             return context.HttpContext.Request.Form.Keys.Any(x => x.Equals(formValue, StringComparison.InvariantCultureIgnoreCase));
         }
 
+        public static string GetFormValue(this FilterContext context, string formValue)
+        {
+            if (context.HasFormValue(formValue))
+            {
+                return context.HttpContext.Request.Form[formValue];
+            }
+
+            return null;
+        }
+
         public static bool IsValidForRequest(this FilterContext context, string[] submitButtonNames, FormValueRequirement requirement = FormValueRequirement.Equal, bool validateNameOnly = false)
         {
             if (context.HttpContext.Request.Method != WebRequestMethods.Http.Post) return false;
