@@ -59,6 +59,16 @@ namespace Majako.Plugin.Common.Extensions
 
             return null;
         }
+        
+        public static string GetQueryValue(this FilterContext context, string key)
+        {
+            if (context.HttpContext.Request.Query.Any(x => x.Key.Equals(key, StringComparison.InvariantCultureIgnoreCase)))
+            {
+                return context.HttpContext.Request.Query[key];
+            }
+
+            return null;
+        }
 
         public static bool IsValidForRequest(this FilterContext context, string[] submitButtonNames, FormValueRequirement requirement = FormValueRequirement.Equal, bool validateNameOnly = false)
         {
