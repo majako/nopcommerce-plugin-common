@@ -2,11 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Nop.Web.Areas.Admin.Controllers;
 using Nop.Web.Framework.Controllers;
 
 namespace Majako.Plugin.Misc.Common.BaseClasses
 {
-   public class JsonController : BasePluginController
+   public class JsonController : BaseAdminController
     {
         protected new IActionResult Ok(object data)
         {

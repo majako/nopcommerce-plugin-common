@@ -10,21 +10,6 @@ namespace Majako.Plugin.Common.Extensions
 {
     public static class HttpContextAccessorExtensions
     {
-        public static void AddSuccessNotification(this IHttpContextAccessor httpContextAccessor, string pluginSystemName, string message)
-        {
-            httpContextAccessor.AddNotification(NotifyType.Success, $"{pluginSystemName}: {message}");
-        }
-
-        public static void AddErrorNotification(this IHttpContextAccessor httpContextAccessor, string pluginSystemName, string message)
-        {
-            httpContextAccessor.AddNotification(NotifyType.Error, $"{pluginSystemName}: {message}");
-        }
-
-        public static void AddErrorNotification(this IHttpContextAccessor httpContextAccessor, Exception exception, string pluginSystemName)
-        {
-            httpContextAccessor.AddNotification(NotifyType.Error, $"{pluginSystemName} Error: {exception.Message}");
-        }
-
         public static void AddNotification(this IHttpContextAccessor httpContextAccessor, NotifyType type, string message)
         {
             var tempDataDictionaryFactory = httpContextAccessor.HttpContext.RequestServices.GetRequiredService<ITempDataDictionaryFactory>();
