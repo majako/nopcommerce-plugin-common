@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using Nop.Core.Data;
 using Nop.Core.Domain.Localization;
 using Nop.Core.Infrastructure;
+using Nop.Data;
 using Nop.Services.Localization;
 
 namespace Majako.Plugin.Common.Extensions

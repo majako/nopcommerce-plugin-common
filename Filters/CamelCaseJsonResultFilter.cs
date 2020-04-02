@@ -14,7 +14,7 @@ namespace Majako.Plugin.Common.Filters
         {
             if (ctx.Result is ObjectResult objectResult)
             {
-                objectResult.Formatters.Add(new JsonOutputFormatter(
+                objectResult.Formatters.Add(new NewtonsoftJsonOutputFormatter(
                     new JsonSerializerSettings
                     {
                         ContractResolver = new DefaultContractResolver
@@ -22,7 +22,9 @@ namespace Majako.Plugin.Common.Filters
                             NamingStrategy = new CamelCaseNamingStrategy()
                         }
                     },
-                    ctx.HttpContext.RequestServices.GetRequiredService<ArrayPool<char>>()));
+                    ctx.HttpContext.RequestServices.GetRequiredService<ArrayPool<char>>(),
+                    new MvcOptions()
+                    ));
             }
         }
     }
