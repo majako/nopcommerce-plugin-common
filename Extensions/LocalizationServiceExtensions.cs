@@ -23,7 +23,7 @@ namespace Majako.Plugin.Common.Extensions
                 {
                     using (var streamReader = new StreamReader(filePath))
                     {
-                        localizationService.ImportResourcesFromXml(language, streamReader);
+                        localizationService.ImportResourcesFromXml(language, streamReader, updateExistingResources:false);
                     }
                 }
             }
