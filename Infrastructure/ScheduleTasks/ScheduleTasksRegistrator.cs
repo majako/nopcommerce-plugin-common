@@ -47,12 +47,12 @@ namespace Majako.Plugin.Common.Infrastructure.ScheduleTasks
 
         private static IEnumerable<ValueTuple<Type, RegistredScheduleTaskAttribute>> GetScheduleTasks(Assembly assembly)
         {
-            foreach(var type in assembly.GetTypes().Where(c => c.IsAssignableFrom(typeof(IScheduleTask))))
+            foreach(var type in assembly.GetTypes().Where(c => typeof(IScheduleTask).IsAssignableFrom(c)))
             {
                 var attribute = type.GetCustomAttribute<RegistredScheduleTaskAttribute>();
                 if (attribute == null)
                     continue;
-                yield return new ValueTuple<Type, RegistredScheduleTaskAttribute>(type, attribute);
+                yield return (type, attribute);
             }
         }
     }
