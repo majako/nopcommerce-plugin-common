@@ -6,11 +6,12 @@ namespace Majako.Plugin.Common.Extensions
 {
     public static class ParamterGuardExtensions
     {
-        public static void NotNull<T>(this T source, string parameterName) where T : class
+        public static T NotNull<T>(this T source, string parameterName) where T : class
         {
             parameterName.NotEmpty(nameof(parameterName));
             if (source == null)
                 throw new ArgumentNullException(parameterName);
+            return source;
         }
 
         public static void NotEmpty(this string source, string parameterName)
