@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Majako.Plugin.Common.Extensions;
 
-namespace Majako.Plugin.Common.Abstraction.GoogleTranslate
+namespace Majako.Plugin.Common.Abstractions.GoogleTranslate
 {
     public interface IGoogleTranslateClient
     {
