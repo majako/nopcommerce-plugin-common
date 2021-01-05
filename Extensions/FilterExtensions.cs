@@ -49,6 +49,16 @@ namespace Majako.Plugin.Common.Extensions
         {
             return context.HttpContext.Request.Form.Keys.Any(x => x.Equals(formValue, StringComparison.InvariantCultureIgnoreCase));
         }
+        
+        public static bool HasQueryStringParam(this FilterContext context, string queryStringParam)
+        {
+            return context.HttpContext.Request.Query.Keys.Any(x => x.Equals(queryStringParam, StringComparison.InvariantCultureIgnoreCase));
+        }
+        
+        public static string GetQueryStringValue(this FilterContext context, string queryStringParam)
+        {
+            return context.HttpContext.Request.Query[queryStringParam];
+        }
 
         public static string GetFormValue(this FilterContext context, string formValue)
         {
