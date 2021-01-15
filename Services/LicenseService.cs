@@ -4,9 +4,8 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using Majako.Plugin.Common.Infrastructure;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Hosting;
 using Nop.Core;
 using Nop.Core.Domain.Logging;
 using Nop.Services.Configuration;
@@ -19,17 +18,14 @@ namespace Majako.Plugin.Common.Services
     public class LicenseService : ILicenseService
     {
         private readonly ILogger _logger;
-        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ISettingService _settingService;
 
         public LicenseService(
             ILogger logger,
-            IHttpContextAccessor httpContextAccessor,
             ISettingService settingService
             )
         {
             _logger = logger;
-            _httpContextAccessor = httpContextAccessor;
             _settingService = settingService;
         }
 
@@ -67,9 +63,9 @@ namespace Majako.Plugin.Common.Services
 
                 if (license.AdditionalAttributes.Get(Constants.LicenseAttributeNames.License) != "multiple domain")
                 {
-                    var host = _httpContextAccessor.HttpContext.Request.Host;
+                    var host = HttpContext.Current.Request.Url.Host;
 
-                    var currentHost = host.Host.Replace("www.", "");
+                    var currentHost = host.Replace("www.", "");
                     var licensedHost = license.AdditionalAttributes.Get("store url");
 
                     if (!string.Equals(currentHost, licensedHost, StringComparison.InvariantCultureIgnoreCase) && currentHost != "localhost")
