@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\FilterExtensions.cs" />
     <Compile Include="Extensions\LinqExtensions.cs" />
     <Compile Include="Extensions\ParamterGuardExtensions.cs" />
     <Compile Include="Extensions\SiteMapNodeExtensions.cs" />
