@@ -84,8 +84,8 @@ namespace Majako.Plugin.Common.Services
             }
             catch (Exception e)
             {
-                _logger.Error("Error validating license", e);
-
+                // ref: https://github.com/majako/skapa/issues/2#issuecomment-769647163
+                // _logger.Error("Error validating license", e);
                 return null;
             }
         }
